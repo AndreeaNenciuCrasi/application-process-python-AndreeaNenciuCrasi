@@ -43,6 +43,32 @@ def applicant_name_by_email():
 
     return render_template('mentor_names.html', applicant_names_by_email=applicant_names_by_email)
 
+@app.route('/insert_applicant')
+def insert_applicant_in_database():
+    max = data_manager.max_id()[0]['max'] + 1
+    data_manager.insert_applicant_in_db(max, 'Markus', 'Schaffarzyk', 'djnovus@groovecoverage.com', '003620/725-2666', 54826)
+
+    return render_template('mentor_names.html')
+
+
+@app.route('/applicant-by-application_code')
+def applicant_by_application_code():
+    applicant_name_by_application_code = data_manager.get_applicant_by_application_code('54823')
+
+    return render_template('mentor_names.html', applicant_name_by_application_code=applicant_name_by_application_code)
+
+
+@app.route('/update_applicant')
+def update_applicant_in_database():
+    data_manager.update_applicant_in_db('Jemima', 'Foreman', '003670/223-7459')
+
+    return render_template('mentor_names.html')
+
+@app.route('/applicant_by_full_name')
+def applicant_by_full_name():
+    applicant_by_name = data_manager.get_applicant_update_data('Jemima', 'Foreman')
+
+    return render_template('mentor_names.html', applicant_by_name=applicant_by_name)
 
 if __name__ == '__main__':
     app.run(debug=True)

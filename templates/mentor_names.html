@@ -60,5 +60,60 @@
             {% endfor %}
         {% endif %}
     </div>
+
+    <table>
+        {%  if applicant_name_by_application_code %}
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>First Name</td>
+                <td>Last Name</td>
+                <td>Phone Number</td>
+                <td>Email</td>
+                <td>Application code</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for applicant in applicant_name_by_application_code %}
+                <tr>
+                    <td>{{ applicant.id }}</td>
+                    <td>{{ applicant.first_name }}</td>
+                    <td>{{ applicant.last_name }}</td>
+                    <td>{{ applicant.phone_number }}</td>
+                    <td>{{ applicant.email }}</td>
+                    <td>{{ applicant.application_code }}</td>
+                </tr>
+            {% endfor%}
+        </tbody>
+        {% endif %}
+    </table>
+
+    <table>
+        {%  if applicant_by_name %}
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>First Name</td>
+                <td>Last Name</td>
+                <td>Phone Number</td>
+                <td>Email</td>
+                <td>Application code</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for applicant in applicant_by_name %}
+                <tr>
+                    <td>{{ applicant.id }}</td>
+                    <td>{{ applicant.first_name }}</td>
+                    <td>{{ applicant.last_name }}</td>
+                    <td>{{ applicant.phone_number }}</td>
+                    <td>{{ applicant.email }}</td>
+                    <td>{{ applicant.application_code }}</td>
+                </tr>
+            {% endfor%}
+        </tbody>
+        {% endif %}
+    </table>
+
     {% include 'footer.html' %}
 {% endblock %}
