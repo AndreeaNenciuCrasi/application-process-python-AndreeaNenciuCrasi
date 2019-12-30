@@ -1,10 +1,16 @@
 body {
     background-color: #008e9d;
     color: white;
+    padding-left: 230px;
+    padding-top: 100px;
+    padding-right: 200px;
+    background-image: url("6f3cfdf7c9a5e97c9a55d291fbe129a3-1000.jpg");
+    background-attachment: fixed;
 }
 
 .content-wrapper {
-    padding: 10%;
+    /*padding: 15%;*/
+
 }
 
 .sidenav {
@@ -24,10 +30,64 @@ body {
   padding: 6px 6px 6px 32px;
   text-decoration: none;
   font-size: 20px;
-  color: #818181;
+  color: black;
   display: block;
 }
 
 .sidenav a:hover {
-  color: #f1f1f1;
+  color: blue;
+}
+
+input[type=text], input[type=email], input[type=number]{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 15px;
+}
+label {
+  font-size: 20px;
+}
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  font-size: 20px;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#form_container {
+  border-radius: 5px;
+  background-color: rgba(255,255,255,0.5);
+  padding: 20px;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+td {
+  border-bottom: 1px solid white;
+  height: 30px;
+  vertical-align: bottom;
+}
+thead {
+  color: deeppink;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+h2{
+  color: deeppink;
+}
+
+h1{
+  color: transparent;
 }

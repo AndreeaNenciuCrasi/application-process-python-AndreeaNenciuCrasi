@@ -115,7 +115,7 @@
         </tbody>
         {% endif %}
     </table>
-
+    <div>
     <table>
         {%  if mentor_names_all %}
         <thead>
@@ -142,10 +142,10 @@
                     <td>{{ mentor_name.city }}</td>
                     <td>{{ mentor_name.favourite_number }}</td>
                 </tr>
-            {% endfor%}
-        </tbody>
+            {% endfor%}        </tbody>
         {% endif %}
     </table>
+       </div>
 
     <table>
         {%  if applicants_names_all %}

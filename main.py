@@ -65,7 +65,7 @@ def insert_applicant_in_database():
 
 @app.route('/applicant-by-application_code')
 def applicant_by_application_code():
-    applicant_name_by_application_code = data_manager.get_applicant_by_application_code('54823')
+    applicant_name_by_application_code = data_manager.get_applicant_by_application_code('61823')
 
     return render_template('mentor_names.html', applicant_name_by_application_code=applicant_name_by_application_code)
 

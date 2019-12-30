@@ -3,22 +3,25 @@
 {% block content %}
     {% include 'index.html' %}
     <h2> Insert new applicant:</h2>
-    <form action="{{ url_for('insert_applicant_in_database') }}" method="post">
-        <label>First Name
-            <input type="text" name="first_name">
-        </label>
-        <label>Last Name
-            <input type="text" name="last_name">
-        </label>
-        <label>Phone Number
-            <input type="text" name="phone">
-        </label>
-        <label>Email
-            <input type="email" name="email">
-        </label>
-        <label>Application code
-            <input type="number" name="code">
-        </label>
-        <input type="submit" value="Submit">
-    </form>
+    <div id="form_container">
+        <form action="{{ url_for('insert_applicant_in_database') }}" method="post">
+            <label>First Name
+                <input type="text" name="first_name">
+            </label>
+            <label>    Last Name
+                <input type="text" name="last_name">
+            </label>
+            <label>Phone Number
+                <input type="text" name="phone">
+            </label>
+            <label>Email
+                <input type="email" name="email">
+            </label>
+            <label>Application code
+                <input type="number" name="code">
+            </label>
+            <br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
 {% endblock %}
