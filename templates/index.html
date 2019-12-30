@@ -1,13 +1,18 @@
 {% extends "layout.html" %}
 
 {% block content %}
-    <a href="{{ url_for('mentor_names') }}">Mentor names</a>
-    <a href="{{ url_for('mentor_full_names') }}">Mentor full names</a>
-    <a href="{{ url_for('mentor_nicknames') }}">Mentor nick names</a>
-    <a href="{{ url_for('applicant_name') }}">Applicant name</a>
-    <a href="{{ url_for('applicant_name_by_email') }}">Applicant name by email</a>
-    <a href="{{ url_for('insert_applicant_in_database') }}">Insert applicant </a>
-    <a href="{{ url_for('applicant_by_application_code') }}">Applicant by code</a>
-    <a href="{{ url_for('update_applicant_in_database') }}">Update applicant </a>
-    <a href="{{ url_for('applicant_by_full_name') }}">Updated applicant</a>
+    <div class="sidenav">
+        <a href="{{ url_for('mentor_names') }}">Mentor names</a>
+        <a href="{{ url_for('mentor_full_names') }}">Mentor full names</a>
+        <a href="{{ url_for('mentor_nicknames') }}">Mentor nick names</a>
+        <a href="{{ url_for('applicant_name') }}">Applicant name</a>
+        <a href="{{ url_for('applicant_name_by_email') }}">Applicant name by email</a>
+        <a href="{{ url_for('insert') }}">Insert applicant </a>
+        <a href="{{ url_for('applicant_by_application_code') }}">Applicant by code</a>
+        <a href="{{ url_for('update_applicant_in_database') }}">Update applicant </a>
+        <a href="{{ url_for('applicant_by_full_name') }}">Updated applicant</a>
+        <a href="{{ url_for('delete_applicant_from_database') }}">Delete applicant</a>
+        <a href="{{ url_for('mentors_full_data') }}">Mentors full data</a>
+        <a href="{{ url_for('applicants_full_data') }}">Applicants full data</a>
+    </div>
 {% endblock %}

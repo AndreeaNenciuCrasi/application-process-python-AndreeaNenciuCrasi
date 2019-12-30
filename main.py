@@ -1,5 +1,5 @@
 import data_manager
-from flask import Flask, render_template
+from flask import Flask, render_template,request
 
 app = Flask(__name__)
 
@@ -43,10 +43,22 @@ def applicant_name_by_email():
 
     return render_template('mentor_names.html', applicant_names_by_email=applicant_names_by_email)
 
-@app.route('/insert_applicant')
+
+@app.route('/insert')
+def insert():
+    return render_template('insert_form.html')
+
+
+@app.route('/insert_applicant', methods=['POST', 'GET'])
 def insert_applicant_in_database():
     max = data_manager.max_id()[0]['max'] + 1
-    data_manager.insert_applicant_in_db(max, 'Markus', 'Schaffarzyk', 'djnovus@groovecoverage.com', '003620/725-2666', 54826)
+    if request.method == 'POST':
+        first_name_input = request.form.get('first_name')
+        last_name_input = request.form.get('last_name')
+        phone_input = request.form.get('phone')
+        email_input = request.form.get('email')
+        code_input =  request.form.get('code')
+    data_manager.insert_applicant_in_db(max, first_name_input, last_name_input, phone_input, email_input, code_input)
 
     return render_template('mentor_names.html')
 
@@ -64,11 +76,35 @@ def update_applicant_in_database():
 
     return render_template('mentor_names.html')
 
+
 @app.route('/applicant_by_full_name')
 def applicant_by_full_name():
     applicant_by_name = data_manager.get_applicant_update_data('Jemima', 'Foreman')
 
     return render_template('mentor_names.html', applicant_by_name=applicant_by_name)
+
+
+@app.route('/delete_applicant-by-email')
+def delete_applicant_from_database():
+    data_manager.delete_applicant_from_db('mauriseu.net')
+
+    return render_template('mentor_names.html')
+
+
+@app.route('/mentors-data')
+def mentors_full_data():
+    mentor_names_all = data_manager.get_all_mentors_data()
+
+    return render_template('mentor_names.html', mentor_names_all=mentor_names_all)
+
+
+@app.route('/applicants-data')
+def applicants_full_data():
+    applicants_names_all = data_manager.get_all_applicants_data()
+
+    return render_template('mentor_names.html', applicants_names_all=applicants_names_all)
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)

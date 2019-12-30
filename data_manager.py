@@ -97,3 +97,29 @@ def get_applicant_update_data(cursor, first_name, last_name):
                    """.format(first_name=first_name, last_name=last_name))
     names = cursor.fetchall()
     return names
+
+
+@database_common.connection_handler
+def delete_applicant_from_db(cursor, email):
+    cursor.execute("""DELETE FROM applicants WHERE email LIKE '%{email}';
+                    """.format(email=email))
+    # names = cursor.fetchall()
+    # return names
+
+
+@database_common.connection_handler
+def get_all_mentors_data(cursor):
+    cursor.execute("""
+                    SELECT * FROM mentors;
+                   """)
+    names = cursor.fetchall()
+    return names
+
+
+@database_common.connection_handler
+def get_all_applicants_data(cursor):
+    cursor.execute("""
+                    SELECT * FROM applicants;
+                   """)
+    names = cursor.fetchall()
+    return names

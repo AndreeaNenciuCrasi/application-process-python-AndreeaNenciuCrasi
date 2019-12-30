@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 
 {% block content %}
+    {% include 'index.html' %}
     <div id="mentors">
         {% for mentor_name in mentor_names %}
             {{ mentor_name.first_name + " " + mentor_name.last_name }}<br/>
@@ -109,6 +110,64 @@
                     <td>{{ applicant.phone_number }}</td>
                     <td>{{ applicant.email }}</td>
                     <td>{{ applicant.application_code }}</td>
+                </tr>
+            {% endfor%}
+        </tbody>
+        {% endif %}
+    </table>
+
+    <table>
+        {%  if mentor_names_all %}
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>First Name</td>
+                <td>Last Name</td>
+                <td>Nick Name</td>
+                <td>Phone Number</td>
+                <td>Email</td>
+                <td>City</td>
+                <td>Favourite Number</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for mentor_name in mentor_names_all %}
+                <tr>
+                    <td>{{ mentor_name.id }}</td>
+                    <td>{{ mentor_name.first_name }}</td>
+                    <td>{{ mentor_name.last_name }}</td>
+                    <td>{{ mentor_name.nick_name }}</td>
+                    <td>{{ mentor_name.phone_number }}</td>
+                    <td>{{ mentor_name.email }}</td>
+                    <td>{{ mentor_name.city }}</td>
+                    <td>{{ mentor_name.favourite_number }}</td>
+                </tr>
+            {% endfor%}
+        </tbody>
+        {% endif %}
+    </table>
+
+    <table>
+        {%  if applicants_names_all %}
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>First Name</td>
+                <td>Last Name</td>
+                <td>Phone Number</td>
+                <td>Email</td>
+                <td>Application code</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for applicant_name in applicants_names_all %}
+                <tr>
+                    <td>{{ applicant_name.id }}</td>
+                    <td>{{ applicant_name.first_name }}</td>
+                    <td>{{ applicant_name.last_name }}</td>
+                    <td>{{ applicant_name.phone_number }}</td>
+                    <td>{{ applicant_name.email }}</td>
+                    <td>{{ applicant_name.application_code }}</td>
                 </tr>
             {% endfor%}
         </tbody>
