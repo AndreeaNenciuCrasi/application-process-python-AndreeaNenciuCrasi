@@ -2,10 +2,12 @@ body {
     background-color: #008e9d;
     color: white;
     padding-left: 230px;
-    padding-top: 100px;
+    padding-top: 70px;
     padding-right: 200px;
     background-image: url("6f3cfdf7c9a5e97c9a55d291fbe129a3-1000.jpg");
     background-attachment: fixed;
+    font-family: 'Amatic SC', bold;
+    font-size: 25px;
 }
 
 .content-wrapper {
@@ -29,7 +31,7 @@ body {
 .sidenav a {
   padding: 6px 6px 6px 32px;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 25px;
   color: black;
   display: block;
 }
@@ -76,11 +78,14 @@ input[type=submit]:hover {
 td {
   border-bottom: 1px solid white;
   height: 30px;
+  width: 100px;
   vertical-align: bottom;
+  font-weight: bold;
+  text-align: center;
 }
 thead {
   color: deeppink;
-  font-size: 20px;
+  font-size: 30px;
   font-weight: bold;
 }
 
@@ -91,3 +96,15 @@ h2{
 h1{
   color: transparent;
 }
+
+#gallery{
+  font-size: 30px;
+  color: deeppink;
+}
+
+img{
+  width: 30%;
+  float: left;
+  margin: 1.66%;
+}
+

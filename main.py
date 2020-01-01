@@ -105,6 +105,9 @@ def applicants_full_data():
     return render_template('mentor_names.html', applicants_names_all=applicants_names_all)
 
 
+@app.route('/gallery')
+def gallery():
+    return render_template('gallery.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
