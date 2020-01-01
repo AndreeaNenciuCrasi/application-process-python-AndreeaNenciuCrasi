@@ -9,10 +9,17 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/mentors-with-best-first-name')
-def mentor_names():
-    # We get back dictionaries here (for details check 'database_common.py')
-    mentor_names = data_manager.get_mentor_names_by_first_name('László')
+@app.route('/search-mentor')
+def search_mentor():
+    return render_template('search_mentor.html')
+
+
+@app.route('/mentors-with-best-first-name', methods=['POST', 'GET'])
+def mentor_names_search():
+    # László
+    if request.method == 'POST':
+        first_name_input = request.form.get('first_name')
+    mentor_names = data_manager.get_mentor_names_by_first_name(first_name_input)
 
     return render_template('mentor_names.html', mentor_names=mentor_names)
 

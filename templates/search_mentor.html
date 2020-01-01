@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    {% include 'index.html' %}
+    <h2>Search mentor:</h2>
+    <div id="search_mentor_container">
+        <form action="{{ url_for('mentor_names_search') }}" method="post">
+            <label>First Name
+                <input type="text" name="first_name">
+            </label>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <br><br>
+    <hr>
+{% endblock %}

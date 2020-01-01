@@ -3,46 +3,59 @@
 {% block content %}
     {% include 'index.html' %}
     <div id="mentors">
-        {% for mentor_name in mentor_names %}
-            {{ mentor_name.first_name + " " + mentor_name.last_name }}<br/>
+        {%  if mentor_names %}
+            <h2>Mentor name:</h2>
+            <ul>
+                {% for mentor_name in mentor_names %}
+                    <li>
+                        {{ mentor_name.first_name + " " + mentor_name.last_name }}
+                    </li>
         {% endfor%}
+            </ul>
+        {% endif %}
     </div>
 
-    <table>
-        {%  if mentor_full_names %}
-        <thead>
-            <tr>
-                <td>First name</td>
-                <td>Last name</td>
-            </tr>
-        </thead>
-        <tbody>
-            {% for mentor_full_name in mentor_full_names %}
+    {%  if mentor_full_names %}
+    <div class="border">
+        <table align="center">
+            <thead>
                 <tr>
-                    <td>{{ mentor_full_name.first_name }}</td>
-                    <td>{{ mentor_full_name.last_name }}</td>
+                    <td>First name</td>
+                    <td>Last name</td>
                 </tr>
-            {% endfor%}
-        </tbody>
-        {% endif %}
-    </table>
+            </thead>
+            <tbody>
+                {% for mentor_full_name in mentor_full_names %}
+                    <tr>
+                        <td>{{ mentor_full_name.first_name }}</td>
+                        <td>{{ mentor_full_name.last_name }}</td>
+                    </tr>
+                {% endfor%}
+            </tbody>
 
-    <table>
-        {%  if mentor_nicknames %}
-        <thead>
-            <tr>
-                <td>Nick name</td>
-            </tr>
-        </thead>
-        <tbody>
-            {% for mentor_nickname in mentor_nicknames %}
+        </table>
+    </div>
+    {% endif %}
+
+    {%  if mentor_nicknames %}
+    <div class="border">
+        <table align="center">
+            <thead>
                 <tr>
-                    <td>{{ mentor_nickname.nick_name }}</td>
+                    <td>Nick name</td>
                 </tr>
-            {% endfor%}
-        </tbody>
-        {% endif %}
-    </table>
+            </thead>
+            <tbody>
+                {% for mentor_nickname in mentor_nicknames %}
+                    <tr>
+                        <td>{{ mentor_nickname.nick_name }}</td>
+                    </tr>
+                {% endfor%}
+            </tbody>
+
+        </table>
+    </div>
+    {% endif %}
 
     <div >
         {% if applicant_names %}
@@ -115,8 +128,9 @@
         </tbody>
         {% endif %}
     </table>
+
     <div>
-    <table>
+    <table align="center">
         {%  if mentor_names_all %}
         <thead>
             <tr>
@@ -147,7 +161,7 @@
     </table>
        </div>
 
-    <table>
+    <table align="center">
         {%  if applicants_names_all %}
         <thead>
             <tr>
@@ -173,6 +187,7 @@
         </tbody>
         {% endif %}
     </table>
-
+    <br><br><br>
+    <hr>
     {% include 'footer.html' %}
 {% endblock %}

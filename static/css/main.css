@@ -71,6 +71,11 @@ input[type=submit] {
   padding: 20px;
 }
 
+#search_mentor_container{
+  border-radius: 5px;
+  background-color: rgba(255,255,255,0.5);
+  padding: 20px;
+}
 input[type=submit]:hover {
   background-color: #45a049;
 }
@@ -107,4 +112,35 @@ img{
   float: left;
   margin: 1.66%;
 }
+
+/*#display_mentor_full_names, #display_mentor_nick_names{*/
+.border{
+  border: 20px solid rgba(255,255,255,0.5);
+  padding: 20px;
+  max-width: 700px;
+  width: 80%;
+  margin: 20px auto;
+}
+
+
+hr {
+    overflow: visible; /* For IE */
+    height: 30px;
+    border-style: solid;
+    border-color: deeppink;
+    border-width: 1.5px 0 0 0;
+    border-radius: 20px;
+}
+hr:before { /* Not really supposed to work, but does */
+    display: block;
+    content: "";
+    height: 30px;
+    margin-top: -31px;
+    border-style: solid;
+    border-color: deeppink;
+    border-width: 0 0 1.5px 0;
+    border-radius: 20px;
+}
+
+
 

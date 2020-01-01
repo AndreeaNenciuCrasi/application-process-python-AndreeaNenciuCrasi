@@ -2,7 +2,7 @@
 
 {% block content %}
     <div class="sidenav">
-        <a href="{{ url_for('mentor_names') }}">Mentor names</a>
+        <a href="{{ url_for('search_mentor') }}">Mentor names</a>
         <a href="{{ url_for('mentor_full_names') }}">Mentor full names</a>
         <a href="{{ url_for('mentor_nicknames') }}">Mentor nick names</a>
         <a href="{{ url_for('applicant_name') }}">Applicant name</a>
@@ -17,4 +17,5 @@
     </div>
 
     <a id="gallery" href="{{ url_for('gallery') }}">Gallery</a><br><br>
+    <hr>
 {% endblock %}
