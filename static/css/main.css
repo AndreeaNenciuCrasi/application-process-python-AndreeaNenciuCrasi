@@ -152,6 +152,9 @@ hr:before {
     margin: 20px auto;
 }
 
+.p_border {
+    border-left: 5px solid rgba(255,255,255,0.5);
+}
 
 
 
