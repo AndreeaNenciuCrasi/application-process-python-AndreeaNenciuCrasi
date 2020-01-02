@@ -87,9 +87,17 @@ def insert_applicant_in_database():
     return render_template('mentor_names.html', add_string=add_string)
 
 
-@app.route('/applicant-by-application_code')
+@app.route('/search-applicant-by-application-code')
+def search_applicant_by_application_code():
+    return render_template('search_applicant_code.html')
+
+
+@app.route('/applicant-by-application_code', methods=['POST', 'GET'])
 def applicant_by_application_code():
-    applicant_name_by_application_code = data_manager.get_applicant_by_application_code('61823')
+    # 61823
+    if request.method == 'POST':
+        code_input = request.form.get('code')
+    applicant_name_by_application_code = data_manager.get_applicant_by_application_code(code_input)
 
     return render_template('mentor_names.html', applicant_name_by_application_code=applicant_name_by_application_code)
 
