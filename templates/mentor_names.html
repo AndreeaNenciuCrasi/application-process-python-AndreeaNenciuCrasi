@@ -187,6 +187,9 @@
         </tbody>
         {% endif %}
     </table>
+    {% if add_string %}
+        <h2 class="message">{{ add_string }}</h2>
+    {% endif %}
     <br><br><br>
     {% include 'footer.html' %}
 {% endblock %}

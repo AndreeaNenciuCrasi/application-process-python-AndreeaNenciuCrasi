@@ -52,9 +52,17 @@ def applicant_name_search():
     return render_template('mentor_names.html', applicant_names=applicant_names)
 
 
-@app.route('/applicant-name-by-email')
+@app.route('/search-applicant-by-email')
+def search_applicant_by_email():
+    return render_template('search_applicant_email.html')
+
+
+@app.route('/applicant-name-by-email', methods=['POST', 'GET'])
 def applicant_name_by_email():
-    applicant_names_by_email = data_manager.get_applicant_name_by_email('@adipiscingenimmi.edu')
+    # @adipiscingenimmi.edu
+    if request.method == 'POST':
+        email_input = request.form.get('email')
+    applicant_names_by_email = data_manager.get_applicant_name_by_email(email_input)
 
     return render_template('mentor_names.html', applicant_names_by_email=applicant_names_by_email)
 
@@ -74,8 +82,9 @@ def insert_applicant_in_database():
         email_input = request.form.get('email')
         code_input =  request.form.get('code')
     data_manager.insert_applicant_in_db(max, first_name_input, last_name_input, phone_input, email_input, code_input)
+    add_string='The applicant was added'
 
-    return render_template('mentor_names.html')
+    return render_template('mentor_names.html', add_string=add_string)
 
 
 @app.route('/applicant-by-application_code')
@@ -101,7 +110,7 @@ def applicant_by_full_name():
 
 @app.route('/delete_applicant-by-email')
 def delete_applicant_from_database():
-    data_manager.delete_applicant_from_db('mauriseu.net')
+    data_manager.delete_applicant_from_db('@groovecoverage.com')
 
     return render_template('mentor_names.html')
 
