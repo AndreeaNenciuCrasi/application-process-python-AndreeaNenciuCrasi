@@ -82,9 +82,9 @@ def insert_applicant_in_database():
         email_input = request.form.get('email')
         code_input =  request.form.get('code')
     data_manager.insert_applicant_in_db(max, first_name_input, last_name_input, phone_input, email_input, code_input)
-    add_string='The applicant was added'
+    add_message='The applicant was added'
 
-    return render_template('mentor_names.html', add_string=add_string)
+    return render_template('mentor_names.html', add_message=add_message)
 
 
 @app.route('/search-applicant-by-application-code')
@@ -102,25 +102,53 @@ def applicant_by_application_code():
     return render_template('mentor_names.html', applicant_name_by_application_code=applicant_name_by_application_code)
 
 
-@app.route('/update_applicant')
+@app.route('/update')
+def update():
+    return render_template('update_form.html')
+
+
+@app.route('/update_applicant', methods=['POST', 'GET'])
 def update_applicant_in_database():
-    data_manager.update_applicant_in_db('Jemima', 'Foreman', '003670/223-7459')
+    # data_manager.update_applicant_in_db('Jemima', 'Foreman', '003670/223-7459')
+    if request.method == 'POST':
+        first_name_input = request.form.get('first_name')
+        last_name_input = request.form.get('last_name')
+        phone_input = request.form.get('phone')
+    data_manager.update_applicant_in_db(first_name_input, last_name_input, phone_input)
+    update_message = 'The applicant was updated'
 
-    return render_template('mentor_names.html')
+    return render_template('mentor_names.html', update_message=update_message)
 
 
-@app.route('/applicant_by_full_name')
+@app.route('/search-applicant_by_full_name')
+def search_applicant_by_full_name():
+    return render_template('search_applicant_name.html')
+
+
+@app.route('/applicant_by_full_name', methods=['POST', 'GET'])
 def applicant_by_full_name():
-    applicant_by_name = data_manager.get_applicant_update_data('Jemima', 'Foreman')
+    # applicant_by_name = data_manager.get_applicant_update_data('Jemima', 'Foreman')
+    if request.method == 'POST':
+        first_name_input = request.form.get('first_name')
+        last_name_input = request.form.get('last_name')
+    applicant_by_name = data_manager.get_applicant_update_data(first_name_input, last_name_input)
 
     return render_template('mentor_names.html', applicant_by_name=applicant_by_name)
 
 
-@app.route('/delete_applicant-by-email')
-def delete_applicant_from_database():
-    data_manager.delete_applicant_from_db('@groovecoverage.com')
+@app.route('/delete')
+def delete():
+    return render_template('delete_form.html')
 
-    return render_template('mentor_names.html')
+@app.route('/delete_applicant-by-email', methods=['POST', 'GET'])
+def delete_applicant_from_database():
+    # data_manager.delete_applicant_from_db('@groovecoverage.com')
+    if request.method == 'POST':
+        email_input = request.form.get('email')
+    data_manager.delete_applicant_from_db(email_input)
+    delete_message='The applicant was deleted'
+
+    return render_template('mentor_names.html', delete_message=delete_message)
 
 
 @app.route('/mentors-data')

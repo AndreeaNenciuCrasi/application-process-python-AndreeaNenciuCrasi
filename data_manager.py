@@ -55,8 +55,8 @@ def get_applicant_name_by_email(cursor, email):
 def insert_applicant_in_db(cursor, id, first_name, last_name, email, phone_number, application_code):
     cursor.execute("""
                     INSERT INTO applicants (id, first_name, last_name, email, phone_number, application_code)
-                    VALUES ({id}, '{first_name}', '{last_name}', '{email}', '{phone_number}', {application_code});
-                   """.format(id=id, first_name=first_name, last_name=last_name, email=email, phone_number=phone_number, application_code=application_code))
+                    VALUES ({id}, '{first_name}', '{last_name}', '{phone_number}', '{email}', {application_code});
+                   """.format(id=id, first_name=first_name, last_name=last_name, phone_number=phone_number, email=email, application_code=application_code))
     # names = cursor.fetchall()
     # return names
 

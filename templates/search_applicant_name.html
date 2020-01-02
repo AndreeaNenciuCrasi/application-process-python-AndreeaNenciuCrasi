@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    {% include 'index.html' %}
+    <h2>Search applicant:</h2>
+    <div class="form_div">
+        <form action="{{ url_for('applicant_by_full_name') }}" method="post">
+            <label>First Name
+                <input type="text" name="first_name">
+            </label>
+            <label>Last Name
+                <input type="text" name="last_name">
+            </label>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <br><br>
+     {% include 'footer.html' %}
+{% endblock %}l>

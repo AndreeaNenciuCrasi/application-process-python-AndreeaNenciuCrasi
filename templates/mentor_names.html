@@ -187,9 +187,19 @@
         </tbody>
         {% endif %}
     </table>
-    {% if add_string %}
-        <h2 class="message">{{ add_string }}</h2>
+
+    {% if add_message %}
+        <h2 class="message">{{ add_message }}</h2>
     {% endif %}
+
+    {% if update_message %}
+        <h2 class="message">{{ update_message }}</h2>
+    {% endif %}
+
+    {% if delete_message %}
+        <h2 class="message">{{ delete_message }}</h2>
+    {% endif %}
+
     <br><br><br>
     {% include 'footer.html' %}
 {% endblock %}

@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    {% include 'index.html' %}
+    <h2>Delete applicant:</h2>
+    <div class="form_div">
+        <form action="{{ url_for('delete_applicant_from_database') }}" method="post">
+            <label>Email
+                <input type="text" name="email">
+            </label>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <br><br>
+     {% include 'footer.html' %}
+{% endblock %}
