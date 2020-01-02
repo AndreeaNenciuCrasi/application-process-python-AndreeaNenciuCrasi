@@ -37,9 +37,17 @@ def mentor_nicknames():
     return render_template('mentor_names.html', mentor_nicknames=mentor_nicknames)
 
 
-@app.route('/applicant-name')
-def applicant_name():
-    applicant_names = data_manager.get_applicant_name('Carol')
+@app.route('/search-applicant')
+def search_applicant():
+    return render_template('search_applicant.html')
+
+
+@app.route('/applicant-name', methods=['POST', 'GET'])
+def applicant_name_search():
+    # Carol
+    if request.method == 'POST':
+        first_name_input = request.form.get('first_name')
+    applicant_names = data_manager.get_applicant_name(first_name_input)
 
     return render_template('mentor_names.html', applicant_names=applicant_names)
 

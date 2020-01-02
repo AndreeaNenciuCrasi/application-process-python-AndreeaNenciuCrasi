@@ -2,8 +2,8 @@ body {
     background-color: #008e9d;
     color: white;
     padding-left: 230px;
-    padding-top: 70px;
-    padding-right: 200px;
+    padding-top: 40px;
+    padding-right: 30px;
     background-image: url("6f3cfdf7c9a5e97c9a55d291fbe129a3-1000.jpg");
     background-attachment: fixed;
     font-family: 'Amatic SC', bold;
@@ -65,17 +65,17 @@ input[type=submit] {
   cursor: pointer;
 }
 
-#form_container {
-  border-radius: 5px;
-  background-color: rgba(255,255,255,0.5);
-  padding: 20px;
-}
+/*#form_container {*/
+/*  border-radius: 5px;*/
+/*  background-color: rgba(255,255,255,0.5);*/
+/*  padding: 20px;*/
+/*}*/
 
-#search_mentor_container{
-  border-radius: 5px;
-  background-color: rgba(255,255,255,0.5);
-  padding: 20px;
-}
+/*#search_mentor_container{*/
+/*  border-radius: 5px;*/
+/*  background-color: rgba(255,255,255,0.5);*/
+/*  padding: 20px;*/
+/*}*/
 input[type=submit]:hover {
   background-color: #45a049;
 }
@@ -102,9 +102,11 @@ h1{
   color: transparent;
 }
 
-#gallery{
+.menu{
+  width: 20%;
   font-size: 30px;
   color: deeppink;
+  padding-left: 5%;
 }
 
 img{
@@ -113,7 +115,6 @@ img{
   margin: 1.66%;
 }
 
-/*#display_mentor_full_names, #display_mentor_nick_names{*/
 .border{
   border: 20px solid rgba(255,255,255,0.5);
   padding: 20px;
@@ -124,14 +125,14 @@ img{
 
 
 hr {
-    overflow: visible; /* For IE */
+    overflow: visible;
     height: 30px;
     border-style: solid;
     border-color: deeppink;
     border-width: 1.5px 0 0 0;
     border-radius: 20px;
 }
-hr:before { /* Not really supposed to work, but does */
+hr:before {
     display: block;
     content: "";
     height: 30px;
@@ -142,5 +143,13 @@ hr:before { /* Not really supposed to work, but does */
     border-radius: 20px;
 }
 
+.form_div {
+    width: 700px;
+    border-radius: 5px;
+    background-color: rgba(255,255,255,0.5);
+    padding: 20px;
+    width: 80%;
+    margin: 20px auto;
+}
 
 

@@ -5,7 +5,7 @@
         <a href="{{ url_for('search_mentor') }}">Mentor names</a>
         <a href="{{ url_for('mentor_full_names') }}">Mentor full names</a>
         <a href="{{ url_for('mentor_nicknames') }}">Mentor nick names</a>
-        <a href="{{ url_for('applicant_name') }}">Applicant name</a>
+        <a href="{{ url_for('search_applicant') }}">Applicant name</a>
         <a href="{{ url_for('applicant_name_by_email') }}">Applicant name by email</a>
         <a href="{{ url_for('insert') }}">Insert applicant </a>
         <a href="{{ url_for('applicant_by_application_code') }}">Applicant by code</a>
@@ -16,6 +16,11 @@
         <a href="{{ url_for('applicants_full_data') }}">Applicants full data</a>
     </div>
 
-    <a id="gallery" href="{{ url_for('gallery') }}">Gallery</a><br><br>
-    <hr>
+    <nav>
+        <a class="menu" href="#">Home</a>
+        <a class="menu" href="#">About</a>
+        <a class="menu" href="{{ url_for('gallery') }}">Gallery</a>
+        <a class="menu" href="#">Contact</a>
+    </nav>
+     {% include 'footer.html' %}
 {% endblock %}

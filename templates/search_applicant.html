@@ -2,9 +2,9 @@
 
 {% block content %}
     {% include 'index.html' %}
-    <h2>Search mentor:</h2>
-    <div id="search_mentor_container" class="form_div">
-        <form action="{{ url_for('mentor_names_search') }}" method="post">
+    <h2>Search applicant:</h2>
+    <div class="form_div">
+        <form action="{{ url_for('applicant_name_search') }}" method="post">
             <label>First Name
                 <input type="text" name="first_name">
             </label>
@@ -14,3 +14,4 @@
     <br><br>
      {% include 'footer.html' %}
 {% endblock %}
+
