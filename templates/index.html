@@ -14,13 +14,13 @@
         <a href="{{ url_for('delete') }}">Delete applicant</a>
         <a href="{{ url_for('mentors_full_data') }}">Mentors full data</a>
         <a href="{{ url_for('applicants_full_data') }}">Applicants full data</a>
-    </div>
+    </div >
 
-    <nav>
+    <nav class="topnav">
         <a class="menu" href="{{ url_for('home') }}">Home</a>
-        <a class="menu" href="#">About</a>
+        <a class="menu" href="{{ url_for('about') }}">About</a>
         <a class="menu" href="{{ url_for('gallery') }}">Gallery</a>
-        <a class="menu" href="#">Contact</a>
+        <a class="menu" href="{{ url_for('contact') }}">Contact</a>
     </nav>
      {% include 'footer.html' %}
 {% endblock %}

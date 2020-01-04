@@ -40,6 +40,10 @@ body {
   color: blue;
 }
 
+.topnav a:hover {
+  color: lightpink;
+}
+
 input[type=text], input[type=email], input[type=number]{
   width: 100%;
   padding: 12px 20px;
@@ -65,17 +69,6 @@ input[type=submit] {
   cursor: pointer;
 }
 
-/*#form_container {*/
-/*  border-radius: 5px;*/
-/*  background-color: rgba(255,255,255,0.5);*/
-/*  padding: 20px;*/
-/*}*/
-
-/*#search_mentor_container{*/
-/*  border-radius: 5px;*/
-/*  background-color: rgba(255,255,255,0.5);*/
-/*  padding: 20px;*/
-/*}*/
 input[type=submit]:hover {
   background-color: #45a049;
 }
@@ -152,9 +145,25 @@ hr:before {
     margin: 20px auto;
 }
 
-.p_border {
-    border-left: 5px solid rgba(255,255,255,0.5);
+/*.p_border {*/
+/*    border-left: 5px solid rgba(255,255,255,0.5);*/
+/*}*/
+
+#maintitle {
+    font-size: 70px;
+    color: white;
+    padding-left: 220px;
 }
 
+#maintitle:hover {
+    color: lightpink;
+}
 
+#contact a {
+    color: deeppink;
+}
+
+#contact a:hover {
+    color: lightpink;
+}
 
