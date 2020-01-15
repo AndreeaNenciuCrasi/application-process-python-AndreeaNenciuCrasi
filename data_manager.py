@@ -129,6 +129,27 @@ def get_all_applicants_data(cursor):
 def get_mentors_and_schools(cursor):
     cursor.execute(""" SELECT mentors.first_name, mentors.last_name, schools.name, schools.country
                        FROM mentors JOIN schools
-                       ON mentors.city=schools.city; """)
+                       ON mentors.city=schools.city
+                       ORDER BY mentors.id; """)
+    names = cursor.fetchall()
+    return names
+
+
+@database_common.connection_handler
+def get_mentors_and_schools_right_join(cursor):
+    cursor.execute(""" SELECT mentors.first_name, mentors.last_name, schools.name, schools.country
+                       FROM schools LEFT JOIN mentors
+                       ON mentors.city=schools.city
+                       ORDER BY mentors.id; """)
+    names = cursor.fetchall()
+    return names
+
+
+@database_common.connection_handler
+def get_mentors_number_by_country(cursor):
+    cursor.execute("""SELECT COUNT(mentors.first_name) AS "Count", schools.country
+                    FROM mentors JOIN schools
+                    ON mentors.city=schools.city
+                    GROUP BY schools.country;""")
     names = cursor.fetchall()
     return names

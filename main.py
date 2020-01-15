@@ -189,6 +189,20 @@ def mentor_and_schools_page():
     return render_template('mentor_names.html', mentor_schools=mentor_schools)
 
 
+@app.route('/all-school')
+def mentors_and_all_schools_page():
+    mentor_all_schools = data_manager.get_mentors_and_schools_right_join()
+
+    return render_template('mentor_names.html', mentor_all_schools=mentor_all_schools)
+
+
+
+@app.route('/mentors-by-country')
+def mentors_number_by_country():
+    mentor_by_country = data_manager.get_mentors_number_by_country()
+
+    return render_template('mentor_names.html', mentor_by_country=mentor_by_country)
+
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -223,6 +223,49 @@
         {% endif %}
     </table>
 
+    <table align="center">
+        {%  if mentor_all_schools %}
+        <thead>
+            <tr>
+                <td>School</td>
+                <td>Country</td>
+                <td>First Name</td>
+                <td>Last Name</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for element in mentor_all_schools %}
+                <tr>
+                    <td>{{ element.name }}</td>
+                    <td>{{ element.country }}</td>
+                    <td>{{ element.first_name }}</td>
+                    <td>{{ element.last_name }}</td>
+
+                </tr>
+            {% endfor%}
+        </tbody>
+        {% endif %}
+    </table>
+
+    <table align="center">
+        {%  if mentor_by_country %}
+        <thead>
+            <tr>
+                <td>Country</td>
+                <td>Mentors number</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for element in mentor_by_country %}
+                <tr>
+                    <td>{{ element.country }}</td>
+                    <td>{{ element.Count }}</td>
+                </tr>
+            {% endfor%}
+        </tbody>
+        {% endif %}
+    </table>
+
     <br><br><br>
     {% include 'footer.html' %}
 {% endblock %}
