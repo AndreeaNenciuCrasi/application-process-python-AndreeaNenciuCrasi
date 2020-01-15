@@ -210,6 +210,18 @@ def schools_contacts():
 
     return render_template('mentor_names.html', school_contact_persons=school_contact_persons)
 
+@app.route('/applicants')
+def applicants_by_creation_date():
+    applicants_by_date = data_manager.get_applicants_by_date()
+
+    return render_template('mentor_names.html', applicants_by_date=applicants_by_date)
+
+
+@app.route('/applicants-and-mentors')
+def applicants_with_the_personal_mentor():
+    applicants_with_mentor = data_manager.get_applicants_with_mentor()
+
+    return render_template('mentor_names.html', applicants_with_mentor=applicants_with_mentor)
 
 
 if __name__ == '__main__':

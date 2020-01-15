@@ -285,6 +285,48 @@
         {% endif %}
     </table>
 
+    <table align="center">
+        {%  if applicants_by_date %}
+        <thead>
+            <tr>
+                <td>Applicant</td>
+                <td>Code</td>
+                <td>Date</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for element in applicants_by_date %}
+                <tr>
+                    <td>{{ element.first_name }}</td>
+                    <td>{{ element.application_code }}</td>
+                    <td>{{ element.creation_date }}</td>
+                </tr>
+            {% endfor%}
+        </tbody>
+        {% endif %}
+    </table>
+
+    <table align="center">
+        {%  if applicants_with_mentor %}
+        <thead>
+            <tr>
+                <td>Applicant</td>
+                <td>Code</td>
+                <td>Mentor</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for element in applicants_with_mentor %}
+                <tr>
+                    <td>{{ element.first_name }}</td>
+                    <td>{{ element.application_code }}</td>
+                    <td>{{ element.name }}</td>
+                </tr>
+            {% endfor%}
+        </tbody>
+        {% endif %}
+    </table>
+
     <br><br><br>
     {% include 'footer.html' %}
 {% endblock %}

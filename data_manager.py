@@ -164,3 +164,29 @@ def get_contacts(cursor):
     names = cursor.fetchall()
     return names
 
+
+@database_common.connection_handler
+def get_applicants_by_date(cursor):
+    cursor.execute("""SELECT applicants.first_name, applicants.application_code, applicants_mentors.creation_date
+                    FROM applicants
+                    JOIN applicants_mentors
+                    ON applicants.id=applicants_mentors.applicant_id
+                    WHERE applicants_mentors.creation_date > '2016-01-01'
+                    ORDER BY applicants_mentors.creation_date DESC;""")
+    names = cursor.fetchall()
+    return names
+
+
+@database_common.connection_handler
+def get_applicants_with_mentor(cursor):
+    cursor.execute("""SELECT applicants.first_name, applicants.application_code, CONCAT(mentors.first_name, ' ', mentors.last_name) AS "name"
+                    FROM applicants_mentors
+                    RIGHT JOIN applicants
+                    ON applicants.id=applicants_mentors.applicant_id
+                    LEFT JOIN mentors
+                    ON mentors.id=applicants_mentors.mentor_id
+                    ORDER BY applicants.id;""")
+    names = cursor.fetchall()
+    return names
+
+
