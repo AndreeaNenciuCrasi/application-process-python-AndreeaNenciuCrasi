@@ -266,6 +266,25 @@
         {% endif %}
     </table>
 
+    <table align="center">
+        {%  if school_contact_persons %}
+        <thead>
+            <tr>
+                <td>School</td>
+                <td>Contact person</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for element in school_contact_persons %}
+                <tr>
+                    <td>{{ element.name }}</td>
+                    <td>{{ element.Name }}</td>
+                </tr>
+            {% endfor%}
+        </tbody>
+        {% endif %}
+    </table>
+
     <br><br><br>
     {% include 'footer.html' %}
 {% endblock %}

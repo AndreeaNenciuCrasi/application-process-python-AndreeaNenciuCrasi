@@ -204,5 +204,13 @@ def mentors_number_by_country():
     return render_template('mentor_names.html', mentor_by_country=mentor_by_country)
 
 
+@app.route('/contacts')
+def schools_contacts():
+    school_contact_persons = data_manager.get_contacts()
+
+    return render_template('mentor_names.html', school_contact_persons=school_contact_persons)
+
+
+
 if __name__ == '__main__':
     app.run(debug=True)

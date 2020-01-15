@@ -153,3 +153,14 @@ def get_mentors_number_by_country(cursor):
                     GROUP BY schools.country;""")
     names = cursor.fetchall()
     return names
+
+
+@database_common.connection_handler
+def get_contacts(cursor):
+    cursor.execute("""SELECT schools.name, CONCAT(mentors.first_name, ' ', mentors.last_name) AS "Name"
+                    FROM schools LEFT JOIN mentors
+                    ON mentors.id=schools.contact_person
+                    ORDER BY schools.name;""")
+    names = cursor.fetchall()
+    return names
+
