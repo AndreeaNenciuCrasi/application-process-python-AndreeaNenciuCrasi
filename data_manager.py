@@ -123,3 +123,12 @@ def get_all_applicants_data(cursor):
                    """)
     names = cursor.fetchall()
     return names
+
+
+@database_common.connection_handler
+def get_mentors_and_schools(cursor):
+    cursor.execute(""" SELECT mentors.first_name, mentors.last_name, schools.name, schools.country
+                       FROM mentors JOIN schools
+                       ON mentors.city=schools.city; """)
+    names = cursor.fetchall()
+    return names

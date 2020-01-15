@@ -182,5 +182,13 @@ def gallery():
     return render_template('gallery.html')
 
 
+@app.route('/mentors')
+def mentor_and_schools_page():
+    mentor_schools = data_manager.get_mentors_and_schools()
+
+    return render_template('mentor_names.html', mentor_schools=mentor_schools)
+
+
+
 if __name__ == '__main__':
     app.run(debug=True)

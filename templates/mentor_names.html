@@ -200,6 +200,29 @@
         <h2 class="message">{{ delete_message }}</h2>
     {% endif %}
 
+    <table align="center">
+        {%  if mentor_schools %}
+        <thead>
+            <tr>
+                <td>First Name</td>
+                <td>Last Name</td>
+                <td>School</td>
+                <td>Country</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for element in mentor_schools %}
+                <tr>
+                    <td>{{ element.first_name }}</td>
+                    <td>{{ element.last_name }}</td>
+                    <td>{{ element.name }}</td>
+                    <td>{{ element.country }}</td>
+                </tr>
+            {% endfor%}
+        </tbody>
+        {% endif %}
+    </table>
+
     <br><br><br>
     {% include 'footer.html' %}
 {% endblock %}
