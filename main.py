@@ -1,5 +1,5 @@
 import data_manager
-from flask import Flask, render_template,request
+from flask import Flask, render_template,request, make_response
 
 app = Flask(__name__)
 
@@ -222,6 +222,18 @@ def applicants_with_the_personal_mentor():
     applicants_with_mentor = data_manager.get_applicants_with_mentor()
 
     return render_template('mentor_names.html', applicants_with_mentor=applicants_with_mentor)
+
+
+@app.route('/set-cookie')
+def cookie_insertion():
+    response = make_response('Setting cookie!')
+    response.set_cookie('My first Cookie', 'Flask Cookie')
+    return response
+
+@app.route('/get-cookie')
+def read_cookie():
+    read_my_cookie=request.cookies.get('My first Cookie')
+    return 'The name of my cookie is: ' + read_my_cookie
 
 
 if __name__ == '__main__':
