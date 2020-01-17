@@ -1,14 +1,46 @@
 import data_manager
-from flask import Flask, render_template,request, make_response
+from flask import Flask, render_template,request, make_response, session, redirect, url_for, g
+import os
 
 app = Flask(__name__)
-
-
+app.secret_key = os.urandom(24)
 
 @app.route('/')
+@app.route('/login', methods=['POST', 'GET'])
+def login_page():
+    if request.method == 'POST':
+        session.pop('user', None)
+        if request.form['password'] == 'password':
+            session['user'] = request.form['username']
+            return redirect(url_for('home'))
+    return render_template('login_form.html')
+
+
+
 @app.route('/home')
 def home():
-    return render_template('home.html')
+    if g.user:
+        return render_template('home.html')
+    return redirect(url_for('login_page'))
+
+@app.before_request
+def before_request():
+    g.user = None
+    if 'user' in session:
+        g.user = session['user']
+
+
+@app.route('/getsession')
+def getsession():
+    if 'user' in session:
+        return session['user']
+    return 'Not logged on!'
+
+
+@app.route('/dropsession')
+def dropsession():
+    session.pop('user', None)
+    return 'Dropped!'
 
 
 @app.route('/about')
